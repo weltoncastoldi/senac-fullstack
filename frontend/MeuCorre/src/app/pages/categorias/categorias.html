@@ -21,16 +21,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							@for (country of countries; track country.name; let i = $index) {
+							@for (despesa of categorias_despesas; track despesa.nome; let i = $index) {
 							<tr>
 								<th scope="row">{{ i + 1 }}</th>
 								<td>
-									<img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
-										[alt]="'The flag of ' + country.name" class="me-2" style="width: 20px" />
-									{{ country.name }}
+									<i class="{{despesa.icone}}"></i>
 								</td>
-								<td>{{ country.area | number }}</td>
-								<td>{{ country.population | number }}</td>
+								<td>{{ despesa.nome }}</td>
+								<td>botao</td>
 							</tr>
 							}
 						</tbody>
