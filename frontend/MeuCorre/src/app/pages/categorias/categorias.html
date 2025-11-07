@@ -25,9 +25,7 @@
 							@for (despesa of categorias_despesas; track despesa.nome; let i = $index) {
 							<tr>
 								<td>
-									<div class="box-icon" style="background-color: {{ despesa.cor }};">
-										<i class="{{despesa.icone}}"></i>
-									</div>
+									<app-icon-avatar [icone]="despesa.icone" [cor]="despesa.cor"></app-icon-avatar>
 								</td>
 								<td>{{ despesa.nome }}</td>
 								<td>{{ despesa.descricao }}</td>
@@ -42,19 +40,30 @@
 			<li [ngbNavItem]="2">
 				<a ngbNavLink>Receitas</a>
 				<ng-template ngbNavContent>
-					<p>
-						Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
-						loko
-						farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk
-						aliquip jean shorts
-						ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
-						mollit. Keytar
-						helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio
-						cillum wes anderson
-						8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party
-						scenester
-						stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-					</p>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Nome</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Status</th>
+								<th scope="col">Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							@for (receita of categorias_receitas; track receita.nome; let i = $index) {
+							<tr>
+								<td>
+									<app-icon-avatar [icone]="receita.icone" [cor]="receita.cor"></app-icon-avatar>
+								</td>
+								<td>{{ receita.nome }}</td>
+								<td>{{ receita.descricao }}</td>
+								<td>{{ receita.ativo }}</td>
+								<td>botao</td>
+							</tr>
+							}
+						</tbody>
+					</table>
 				</ng-template>
 			</li>
 		</ul>

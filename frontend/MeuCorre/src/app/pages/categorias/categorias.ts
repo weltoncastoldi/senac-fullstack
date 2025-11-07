@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriaModel } from './models/categoria.model';
+import { IconAvatar } from '../../shared/components/icon-avatar/icon-avatar';
 
 @Component({
   selector: 'app-categorias',
-  imports: [NgbNavModule],
+  imports: [NgbNavModule,IconAvatar],
   templateUrl: './categorias.html',
   styleUrl: './categorias.css',
 })
