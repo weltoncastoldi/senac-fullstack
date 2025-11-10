@@ -11,7 +11,7 @@
 			<li [ngbNavItem]="1">
 				<a ngbNavLink>Despesas</a>
 				<ng-template ngbNavContent>
-					<table class="table table-striped">
+					<table class="table">
 						<thead>
 							<tr>
 								<th scope="col"></th>
@@ -29,7 +29,7 @@
 								</td>
 								<td>{{ despesa.nome }}</td>
 								<td>{{ despesa.descricao }}</td>
-								<td>{{ despesa.ativo }}</td>
+								<td><app-status-badge [status]="despesa.ativo"></app-status-badge></td>
 								<td>botao</td>
 							</tr>
 							}

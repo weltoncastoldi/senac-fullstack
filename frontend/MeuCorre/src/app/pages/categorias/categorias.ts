@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriaModel } from './models/categoria.model';
 import { IconAvatar } from '../../shared/components/icon-avatar/icon-avatar';
+import { StatusBadge } from "../../shared/components/status-badge/status-badge";
 
 @Component({
   selector: 'app-categorias',
-  imports: [NgbNavModule,IconAvatar],
+  imports: [NgbNavModule, IconAvatar, StatusBadge],
   templateUrl: './categorias.html',
   styleUrl: './categorias.css',
 })
@@ -27,7 +28,7 @@ export class Categorias {
       descricao: 'Trabalhos avulsos',
       cor: '#17a2b8',
       icone: 'ri-briefcase-line',
-      ativo: true
+      ativo: false
     },
     {
       id: '3',
@@ -62,7 +63,7 @@ export class Categorias {
       descricao: 'Despesas com lazer',
       cor: '#ffc107',
       icone: 'ri-film-line',
-      ativo: true
+      ativo: false
     },
   ];
 }
