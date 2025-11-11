@@ -30,7 +30,14 @@
 								<td>{{ despesa.nome }}</td>
 								<td>{{ despesa.descricao }}</td>
 								<td><app-status-badge [status]="despesa.ativo"></app-status-badge></td>
-								<td>botao</td>
+								<td>
+									<button type="button" class="btn btn-sm btn-outline-dark me-1" placement="top" ngbTooltip="Editar categoria">
+										<i class="ri-pencil-line"></i>
+									</button>
+									<button (click)="excluirCategoriaDespesa(despesa.id)" type="button" class="btn btn-sm btn-outline-danger" placement="top" ngbTooltip="Excluír categoria">
+										<i class="ri-delete-bin-2-line"></i>
+									</button>
+								</td>
 							</tr>
 							}
 						</tbody>

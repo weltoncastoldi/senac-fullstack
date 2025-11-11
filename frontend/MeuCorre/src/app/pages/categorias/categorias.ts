@@ -1,5 +1,5 @@
 import { Component, inject, signal, TemplateRef, WritableSignal } from '@angular/core';
-import { ModalDismissReasons, NgbModal, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal, NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriaModel } from './models/categoria.model';
 import { IconAvatar } from '../../shared/components/icon-avatar/icon-avatar';
 import { StatusBadge } from "../../shared/components/status-badge/status-badge";
@@ -7,7 +7,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-categorias',
-  imports: [NgbNavModule, IconAvatar, StatusBadge, ReactiveFormsModule],
+  imports: [NgbNavModule, IconAvatar, StatusBadge, ReactiveFormsModule, NgbTooltipModule],
   templateUrl: './categorias.html',
   styleUrl: './categorias.css',
 })
@@ -116,5 +116,11 @@ export class Categorias {
     console.log(this.categorias_receitas);
     
     this.modalService.dismissAll();
+  }
+
+  excluirCategoriaDespesa(id: string){
+    //filter cria um novo array a partir de um array existe de acordo com a
+    //condição passada.
+    this.categorias_despesas = this.categorias_despesas.filter(categoria => categoria.id !== id.toString());
   }
 }
