@@ -13,7 +13,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class Categorias {
   private modalService = inject(NgbModal);
-	closeResult: WritableSignal<string> = signal('');
+  closeResult: WritableSignal<string> = signal('');
 
   nome = new FormControl('');
   descricao = new FormControl('');
@@ -22,13 +22,14 @@ export class Categorias {
 
   active = 1;
 
-  categorias_receitas: CategoriaModel[] = [
+  listaCategorias: CategoriaModel[] = [
     {
-      id: '1', 
-      nome: 'Salário', 
-      descricao: 'Recebimento mensal', 
-      cor: '#28a745', 
-      icone: 'ri-bank-line', 
+      id: '1',
+      nome: 'Salário',
+      descricao: 'Recebimento mensal',
+      cor: '#28a745',
+      icone: 'ri-bank-line',
+      tipo: 'receita',
       ativo: true
     },
     {
@@ -37,6 +38,7 @@ export class Categorias {
       descricao: 'Trabalhos avulsos',
       cor: '#17a2b8',
       icone: 'ri-briefcase-line',
+      tipo: 'receita',
       ativo: false
     },
     {
@@ -45,17 +47,16 @@ export class Categorias {
       descricao: 'Rendimentos de investimentos',
       cor: '#ffc107',
       icone: 'ri-line-chart-line',
+      tipo: 'receita',
       ativo: true
     },
-  ];
-
-  categorias_despesas: CategoriaModel[] = [
     {
       id: '1',
       nome: 'Alimentação',
       descricao: 'Alimentação',
       cor: '#dc3545',
       icone: 'ri-restaurant-line',
+      tipo: 'despesa',
       ativo: true
     },
     {
@@ -63,7 +64,8 @@ export class Categorias {
       nome: 'Transporte',
       descricao: 'Despesas com transporte',
       cor: '#fd7e14',
-      icone: 'ri-bus-line', 
+      icone: 'ri-bus-line',
+      tipo: 'despesa',
       ativo: true
     },
     {
@@ -72,53 +74,60 @@ export class Categorias {
       descricao: 'Despesas com lazer',
       cor: '#ffc107',
       icone: 'ri-film-line',
+      tipo: 'despesa',
       ativo: false
     },
   ];
 
   open(content: TemplateRef<any>) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-			(result) => {
-				this.closeResult.set(`Closed with: ${result}`);
-			},
-			(reason) => {
-				this.closeResult.set(`Dismissed ${this.getDismissReason(reason)}`);
-			},
-		);
-	}
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult.set(`Closed with: ${result}`);
+      },
+      (reason) => {
+        this.closeResult.set(`Dismissed ${this.getDismissReason(reason)}`);
+      },
+    );
+  }
 
   private getDismissReason(reason: any): string {
-		switch (reason) {
-			case ModalDismissReasons.ESC:
-				return 'by pressing ESC';
-			case ModalDismissReasons.BACKDROP_CLICK:
-				return 'by clicking on a backdrop';
-			default:
-				return `with: ${reason}`;
-		}
-	}
+    switch (reason) {
+      case ModalDismissReasons.ESC:
+        return 'by pressing ESC';
+      case ModalDismissReasons.BACKDROP_CLICK:
+        return 'by clicking on a backdrop';
+      default:
+        return `with: ${reason}`;
+    }
+  }
 
-  cadastrarCategoria(){
-    console.log(this.nome.value);
-    console.log(this.descricao.value);
-    console.log(this.cor.value);
-    console.log(this.icone.value);
+  cadastrarCategoria() {
 
-    this.categorias_receitas.push({
-      id: this.categorias_receitas.length + 1 + '',
-      nome: this.nome.value!,
-      descricao: this.descricao.value!,
-      cor: this.cor.value!,
-      icone: this.icone.value!,
-      ativo: true
-    });
+    if (this.active === 1) {
+      this.categorias_despesas.push({
+        id: this.categorias_receitas.length + 1 + '',
+        nome: this.nome.value!,
+        descricao: this.descricao.value!,
+        cor: this.cor.value!,
+        icone: this.icone.value!,
+        ativo: true
+      });
+    }
+    else {
+      this.categorias_receitas.push({
+        id: this.categorias_receitas.length + 1 + '',
+        nome: this.nome.value!,
+        descricao: this.descricao.value!,
+        cor: this.cor.value!,
+        icone: this.icone.value!,
+        ativo: true
+      });
+    }
 
-    console.log(this.categorias_receitas);
-    
     this.modalService.dismissAll();
   }
 
-  excluirCategoriaDespesa(id: string){
+  excluirCategoriaDespesa(id: string) {
     //filter cria um novo array a partir de um array existe de acordo com a
     //condição passada.
     this.categorias_despesas = this.categorias_despesas.filter(categoria => categoria.id !== id.toString());
