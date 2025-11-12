@@ -79,6 +79,14 @@ export class Categorias {
     },
   ];
 
+  get listaReceitas(): CategoriaModel[] {
+    return this.listaCategorias.filter(categoria => categoria.tipo === 'receita');
+  }
+
+  get listaDespesas(): CategoriaModel[] {
+    return this.listaCategorias.filter(categoria => categoria.tipo === 'despesa');
+  }
+
   open(content: TemplateRef<any>) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
       (result) => {
@@ -104,32 +112,32 @@ export class Categorias {
   cadastrarCategoria() {
 
     if (this.active === 1) {
-      this.categorias_despesas.push({
-        id: this.categorias_receitas.length + 1 + '',
+      this.listaCategorias.push({
+        id: this.listaCategorias.length + 1 + '',
         nome: this.nome.value!,
         descricao: this.descricao.value!,
         cor: this.cor.value!,
         icone: this.icone.value!,
-        ativo: true
+        ativo: true,
+        tipo: 'despesa'
       });
     }
     else {
-      this.categorias_receitas.push({
-        id: this.categorias_receitas.length + 1 + '',
+      this.listaCategorias.push({
+        id: this.listaCategorias.length + 1 + '',
         nome: this.nome.value!,
         descricao: this.descricao.value!,
         cor: this.cor.value!,
         icone: this.icone.value!,
-        ativo: true
+        ativo: true,
+        tipo: 'receita'
       });
     }
 
     this.modalService.dismissAll();
   }
 
-  excluirCategoriaDespesa(id: string) {
-    //filter cria um novo array a partir de um array existe de acordo com a
-    //condição passada.
-    this.categorias_despesas = this.categorias_despesas.filter(categoria => categoria.id !== id.toString());
+  excluirCategoria(id: string) {
+    this.listaCategorias = this.listaCategorias.filter(categoria => categoria.id !== id.toString());
   }
 }
