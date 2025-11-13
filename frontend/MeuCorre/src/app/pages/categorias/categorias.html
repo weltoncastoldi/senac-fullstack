@@ -68,7 +68,7 @@
 								<td><app-status-badge [status]="receita.ativo"></app-status-badge></td>
 								<td>								
 									<td>
-									<button type="button" class="btn btn-sm btn-outline-dark me-1" placement="top" ngbTooltip="Editar categoria">
+									<button (click)="open(modalCategorias, receita)" type="button" class="btn btn-sm btn-outline-dark me-1" placement="top" ngbTooltip="Editar categoria">
 										<i class="ri-pencil-line"></i>
 									</button>
 									<button (click)="excluirCategoria(receita.id)" type="button" class="btn btn-sm btn-outline-danger" placement="top" ngbTooltip="Excluír categoria">
@@ -89,7 +89,9 @@
 
 		<ng-template #modalCategorias let-modal>
 			<div class="modal-header">
-				<h4 class="modal-title" id="modal-basic-title">Cadastrar categoria</h4>
+				<h4 class="modal-title" id="modal-basic-title">
+					{{ editandoCategoria? 'Editar categoria' : 'Nova categoria'}}
+				</h4>
 				<button type="button" class="btn-close" aria-label="Close"
 					(click)="modal.dismiss('Cross click')"></button>
 			</div>
@@ -115,7 +117,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-outline-secondary"
-					(click)="cadastrarCategoria()">Salvar</button>
+					(click)="editandoCategoria ? editarCategoria() : cadastrarCategoria()">Salvar</button>
 			</div>
 		</ng-template>
 
