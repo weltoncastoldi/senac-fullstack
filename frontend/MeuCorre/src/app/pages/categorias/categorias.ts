@@ -1,4 +1,4 @@
-import { Component, inject, signal, TemplateRef, WritableSignal } from '@angular/core';
+import { Component, inject, OnInit, signal, TemplateRef, WritableSignal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {
   ModalDismissReasons,
@@ -9,6 +9,7 @@ import {
 import { IconAvatar } from '../../shared/components/icon-avatar/icon-avatar';
 import { StatusBadge } from '../../shared/components/status-badge/status-badge';
 import { CategoriaModel } from './models/categoria.model';
+import { CategoriaService } from './categoria.service';
 
 @Component({
   selector: 'app-categorias',
@@ -16,8 +17,11 @@ import { CategoriaModel } from './models/categoria.model';
   templateUrl: './categorias.html',
   styleUrl: './categorias.css',
 })
-export class Categorias {
+export class Categorias implements OnInit  {
+
   private modalService = inject(NgbModal);
+  private categoriaService = inject(CategoriaService);
+
   closeResult: WritableSignal<string> = signal('');
 
   nome = new FormControl('');
@@ -29,69 +33,26 @@ export class Categorias {
   editandoCategoria = false;
   idEditandoCategoria = '';
 
-  listaCategorias: CategoriaModel[] = [
-    {
-      id: '1',
-      nome: 'Salário',
-      descricao: 'Recebimento mensal',
-      cor: '#28a745',
-      icone: 'ri-bank-line',
-      tipo: 'receita',
-      ativo: true,
-    },
-    {
-      id: '2',
-      nome: 'Freelance',
-      descricao: 'Trabalhos avulsos',
-      cor: '#17a2b8',
-      icone: 'ri-briefcase-line',
-      tipo: 'receita',
-      ativo: false,
-    },
-    {
-      id: '3',
-      nome: 'Investimentos',
-      descricao: 'Rendimentos de investimentos',
-      cor: '#ffc107',
-      icone: 'ri-line-chart-line',
-      tipo: 'receita',
-      ativo: true,
-    },
-    {
-      id: '1',
-      nome: 'Alimentação',
-      descricao: 'Alimentação',
-      cor: '#dc3545',
-      icone: 'ri-restaurant-line',
-      tipo: 'despesa',
-      ativo: true,
-    },
-    {
-      id: '2',
-      nome: 'Transporte',
-      descricao: 'Despesas com transporte',
-      cor: '#fd7e14',
-      icone: 'ri-bus-line',
-      tipo: 'despesa',
-      ativo: true,
-    },
-    {
-      id: '3',
-      nome: 'Lazer',
-      descricao: 'Despesas com lazer',
-      cor: '#ffc107',
-      icone: 'ri-film-line',
-      tipo: 'despesa',
-      ativo: false,
-    },
-  ];
+  listaCategorias = signal<CategoriaModel[]>([]);
 
   get listaReceitas(): CategoriaModel[] {
-    return this.listaCategorias.filter((categoria) => categoria.tipo === 'receita');
+    return this.listaCategorias().filter((categoria) => categoria.tipo === 'receita');
   }
 
   get listaDespesas(): CategoriaModel[] {
-    return this.listaCategorias.filter((categoria) => categoria.tipo === 'despesa');
+    return this.listaCategorias().filter((categoria) => categoria.tipo === 'despesa');
+  }
+
+  ngOnInit(): void {
+    this.carregarTodasCategorias();
+  }
+
+  carregarTodasCategorias(){
+    this.categoriaService.obterTodasPorUsuario().subscribe({
+      next:(dados) => {
+        this.listaCategorias.set(dados);
+      }
+    })
   }
 
   open(content: TemplateRef<any>, categoria?: CategoriaModel) {
@@ -130,7 +91,7 @@ export class Categorias {
 
   cadastrarCategoria() {
     if (this.active === 1) {
-      this.listaCategorias.push({
+      this.listaCategorias().push({
         id: this.listaCategorias.length + 1 + '',
         nome: this.nome.value!,
         descricao: this.descricao.value!,
@@ -140,7 +101,7 @@ export class Categorias {
         tipo: 'despesa',
       });
     } else {
-      this.listaCategorias.push({
+      this.listaCategorias().push({
         id: this.listaCategorias.length + 1 + '',
         nome: this.nome.value!,
         descricao: this.descricao.value!,
@@ -155,13 +116,11 @@ export class Categorias {
   }
 
   excluirCategoria(id: string) {
-    this.listaCategorias = this.listaCategorias.filter(
-      (categoria) => categoria.id !== id.toString()
-    );
+    
   }
 
   editarCategoria() {
-    const categoria = this.listaCategorias.find((c) => c.id === this.idEditandoCategoria);
+    const categoria = this.listaCategorias().find((c) => c.id === this.idEditandoCategoria);
     if (categoria) {
       categoria.nome = this.nome.value!;
       categoria.descricao = this.descricao.value!;
