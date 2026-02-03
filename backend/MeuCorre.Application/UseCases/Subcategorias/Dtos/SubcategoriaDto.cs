@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MeuCorre.Domain.Enums;
 
-namespace MeuCorre.Application.UseCases.Categorias.Dtos
+namespace MeuCorre.Application.UseCases.Subcategorias.Dtos
 {
-    public record CategoriaDto
+    public record SubcategoriaDto
     {
         public Guid Id { get; set; }
+        public Guid CategoriaId { get; set; }
         public required string Nome { get; set; }
         public string? Descricao { get; set; }
         public string? Cor { get; set; }
