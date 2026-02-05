@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using MeuCorre.Application.UseCases.Categorias.Commands;
-using MeuCorre.Application.UseCases.Categorias.Dtos;
 using MeuCorre.Application.UseCases.Categorias.Queries;
 using MeuCorre.Application.UseCases.Tags.Commands;
 using Microsoft.AspNetCore.Mvc;
