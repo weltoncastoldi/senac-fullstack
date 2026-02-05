@@ -14,6 +14,9 @@ namespace MeuCorre.Domain.Entities
         // o usuário pode ter várias categorias
         public virtual ICollection<Categoria> Categorias { get; set; }
 
+        // Propriedade de navegação para a entidade Tags pois
+        // o usuário pode ter várias tags
+        public virtual ICollection<Tag> Tags { get; set; }
 
         //Construtor para criar um novo usuário.
         //Construtor é a primeira coisa que é executada quando uma classe é instanciada.

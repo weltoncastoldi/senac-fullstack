@@ -13,6 +13,8 @@ namespace MeuCorre.Domain.Entities
         public string Nome { get; private set; }
         public string Cor { get; private set; }
 
+        public virtual Usuario Usuario { get; private set; }
+
         //Construtor
         public Tag(Guid usuarioId, string nome, string cor)
         {
