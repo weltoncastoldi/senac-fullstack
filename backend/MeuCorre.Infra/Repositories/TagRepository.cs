@@ -45,19 +45,25 @@ namespace MeuCorre.Infra.Repositories
             return await listaDeTags.ToListAsync();
         }
 
-        public Task<bool> NomeExisteParaUsuarioAsync(string nome, TipoTransacao tipo, Guid usuarioId)
+        public Task<bool> NomeExisteParaUsuarioAsync(string nome, Guid usuarioId)
         {
-            throw new NotImplementedException();
+            var existe = _meuDbContext.Tags.AnyAsync(
+                t => t.Nome == nome &&
+                t.UsuarioId == usuarioId);
+            
+            return existe;
         }
 
-        public Task<Tag?> ObterPorIdAsync(Guid tagId)
+        public async Task<Tag?> ObterPorIdAsync(Guid tagId)
         {
-            throw new NotImplementedException();
+            var tag = _meuDbContext.Tags.FirstOrDefaultAsync(t => t.Id == tagId);
+            return await tag;
         }
 
-        public Task RemoverAsync(Tag tag)
+        public async Task RemoverAsync(Tag tag)
         {
-            throw new NotImplementedException();
+            _meuDbContext.Tags.Remove(tag);
+            await _meuDbContext.SaveChangesAsync();
         }
     }
 }

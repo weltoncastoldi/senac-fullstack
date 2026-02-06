@@ -23,7 +23,7 @@ namespace MeuCorre.Domain.Interfaces.Repositories
         //Verifica se já existe uma categoria com o mesmo
         //nome e tipo para o usuário informado
         //nome e tipo para o usuário informado
-        Task<bool> NomeExisteParaUsuarioAsync(string nome, TipoTransacao tipo, Guid usuarioId);
+        Task<bool> NomeExisteParaUsuarioAsync(string nome, Guid usuarioId);
 
         //Adiciona uma nova tag no banco de dados
         Task AdicionarAsync(Tag tag);
