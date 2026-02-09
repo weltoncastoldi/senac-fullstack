@@ -1,0 +1,153 @@
+# **Situação de Aprendizagem – Criação de Cards de Jogadores com HTML, CSS e JS**
+
+## **Tema da Aula**
+Construção e personalização de *cards* de jogadores utilizando HTML, CSS e JavaScript, inspirados no vídeo “Crie sua figurinha da copa”.
+
+---
+
+# **1. Contextualização**
+Nos últimos anos, a criação de interfaces visuais atrativas tornou-se essencial no desenvolvimento web. Cards são elementos amplamente usados em sites, aplicativos e dashboards para apresentar informações de forma organizada e visualmente agradável.
+
+Nesta atividade, você irá aprender a estruturar, estilizar e personalizar cards de jogadores de futebol, aplicando conceitos fundamentais de HTML, CSS e JavaScript.
+
+---
+
+# **2. Objetivo da Atividade**
+- Reproduzir o card apresentado no vídeo.
+- Compreender a estrutura HTML utilizada.
+- Aplicar estilos CSS para personalização visual.
+- Inserir imagens em formato circular.
+- Criar variações de cards com base nas cores das bandeiras de diferentes seleções.
+- Trabalhar com listas de jogadores e organização de conteúdo.
+
+---
+
+# **3. Etapas da Atividade**
+
+## **Etapa 1 – Assistir ao vídeo**
+Você deverá assistir ao vídeo aberto na aba atual do navegador, que ensina a criar uma figurinha da Copa usando HTML, CSS e JS.  
+VocÊ deve observar atentamente:
+- Estrutura HTML do card  
+- Estilos aplicados no CSS  
+- Como a imagem é posicionada  
+- Como o card é montado visualmente  
+
+Após assistir, eles deverão **reproduzir exatamente o card mostrado no vídeo**.
+
+---
+
+## **Etapa 2 – Criar os 10 maiores jogadores da Seleção Brasileira**
+Depois de reproduzir o card original, cada aluno deverá:
+
+1. Criar **10 cards**, cada um representando um grande jogador da Seleção Brasileira dos últimos anos.  
+   Exemplos:  
+   - Neymar  
+   - Vinícius Jr  
+   - Zico  
+
+2. **Personalizar os cards com as cores da bandeira do Brasil**:  
+   - Verde  
+   - Amarelo  
+   - Azul  
+   - Branco  
+
+3. Inserir **foto circular do jogador** (usar `border-radius: 50%`).
+
+---
+
+## **Etapa 3 – Repetir o processo para outras seleções**
+Você deverá repetir a mesma lógica para:
+
+### **Argentina**
+Cores:  
+- Azul claro  
+- Branco  
+- Dourado (opcional)
+
+Jogadores sugeridos:  
+Messi, Di María, Dybala, Lautaro Martínez, etc.
+
+---
+
+### **França**
+Cores:  
+- Azul  
+- Branco  
+- Vermelho  
+
+Jogadores sugeridos:  
+Mbappé, Griezmann, Kanté, Pogba, etc.
+
+---
+
+### **Alemanha**
+Cores:  
+- Preto  
+- Vermelho  
+- Amarelo  
+
+Jogadores sugeridos:  
+Kroos, Müller, Neuer, Kimmich, etc.
+
+---
+
+# **4. Requisitos Técnicos dos Cards**
+
+Cada card deve conter:
+
+### **Elementos obrigatórios**
+- Foto circular do jogador (a foto de origem deve ser quadrada, o circular deve ser feito via CSS)
+- Nome do jogador  
+- Posição  
+- Número da camisa (em forma de texto)  
+- Bandeira da seleção (icone pequeno emoji)  
+- Cores do card seguindo a paleta da seleção  
+
+### **Estilo mínimo esperado**
+- Uso de `display: flex` ou `grid`  
+- Bordas arredondadas  
+- Sombra suave (`box-shadow`)  
+- Tipografia organizada  
+- Responsividade simples (largura fixa ou percentual)
+
+---
+
+# **5. Entrega da Atividade**
+Os alunos deverão entregar:
+
+- Uma pasta contendo:
+  - `index.html`
+  - `style.css`
+  - `script.js` (se necessário)
+  - Pasta `img/` com as fotos dos jogadores
+
+- A página deve exibir:
+  - 10 cards do Brasil  
+  - 10 cards da Argentina  
+  - 10 cards da França  
+  - 10 cards da Alemanha  
+
+Total: **40 cards**.
+
+---
+
+# **6. Critérios de Avaliação**
+
+| Critério | Descrição |
+|---------|-----------|
+| Fidelidade ao card do vídeo | Reproduziu corretamente o modelo inicial |
+| Organização do código | HTML semântico, CSS organizado |
+| Criatividade | Personalização das cores e layout |
+| Qualidade visual | Harmonia das cores, imagens bem posicionadas |
+| Funcionalidade | Cards exibidos corretamente na página |
+| Entrega completa | Todas as seleções e jogadores incluídos |
+
+---
+
+# **7. Extensão (opcional)**
+Se você se considerada avançado tente fazer:
+
+- Criar um *hover effect* animado  
+- Adicionar um botão “Ver estatísticas”  
+- Criar um modal com mais informações do jogador  
+- Gerar os cards dinamicamente via JavaScript usando arrays  
