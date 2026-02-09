@@ -47,6 +47,8 @@ Vamos usar o poder do **HTML**, a mágica do **CSS** e a inteligência do **Java
    - A mágica do layout
 3. 🎨 **REPRODUZA** o card exatamente como no vídeo!
 
+<iframe width="100%" height="515" src="https://www.youtube.com/embed/sswJisbD2CY?si=4xJV7m8d5ccgk1ax" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ### **🇧🇷 FASE 2: Lendas do Brasil**
@@ -159,7 +161,7 @@ Müller, Neuer, Kroos, Kimmich, Rüdiger, Özil, Schweinsteiger, Lahm, Klose, Ma
 📂 projeto-cards-jogadores/
 ├── 📄 index.html
 ├── 📄 style.css
-├── 📄 script.js (opcional)
+├── 📄 script.js (se necessário)
 └── 📂 img/
     ├── 🖼️ neymar.jpg
     ├── 🖼️ messi.jpg
@@ -207,7 +209,7 @@ Müller, Neuer, Kroos, Kimmich, Rüdiger, Özil, Schweinsteiger, Lahm, Klose, Ma
 
 Quer impressionar e ganhar **XP extra**? Tente estes desafios:
 
-### 🌟 **Desafios Avançados:**
+### 🌟 **Desafios Avançados: só para quem MANJA MESMO**
 
 ```javascript
 // 1️⃣ ANIMAÇÕES
@@ -286,7 +288,7 @@ Card não apareceu? Verifique:
 
 ## 📚 **Recursos Úteis**
 
-- 🎥 [Vídeo: Crie sua figurinha da copa](link-do-video)
+- 🎥 [Vídeo: Crie sua figurinha da copa](https://www.youtube.com/watch?v=sswJisbD2CY)
 - 📖 [MDN Web Docs - CSS Flexbox](https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Flexible_Box_Layout)
 - 🎨 [Coolors - Gerador de Paletas](https://coolors.co)
 - 🖼️ [Unsplash - Fotos Gratuitas](https://unsplash.com)
@@ -300,7 +302,7 @@ Card não apareceu? Verifique:
 ✅ Pode pedir ajuda aos colegas  
 ✅ Pode testar quantas vezes quiser  
 ❌ Não copie código sem entender  
-❌ Não use geradores automáticos  
+❌ Não use llms sem entender o que vc está fazendo, eu vou te perguntar!  
 ❌ Não deixe para última hora  
 
 ---
